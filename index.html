@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Payment checkout form UI</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="checkout_wrapper">
+    <div class="product_info">
+      <img src="product.png" alt="product">
+      <div class="content">
+        <h3>Puma Men's <br/>Sneakers</h3>
+        <h1><p>KES. 1 /=</p></h1>
+      </div>
+    </div>
+    <div class="checkout_form">
+      <p>Payment Section</p>
+      <div class="details">
+         <div class="section">
+          <input id="tel"  type="tel" placeholder="input phone number eg. 0722...">
+        </div>
+        <div class="section">
+          <img width="200px" height="120px" src="/mpesa.png" alt="product">
+        </div>
+        <div class="btn" onclick="pay()">
+          <a href="#">Pay Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    function getInputFromTextBox() {
+            var input = document.getElementById("tel").value;
+            console.log(input);
+        }
+</script>
+
+  <script>
+        function pay() {
+
+            var url = "https://tinypesa.com/api/v1/express/initialize";
+
+            fetch(url, {
+                body: "amount=1&msisdn=0743854888" ,
+                headers: {
+                    Apikey: "Me3s8tLM8vW",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                method: "POST",
+            });
+        }
+
+    </script>
+
+
+    
+</body>
+</html>
